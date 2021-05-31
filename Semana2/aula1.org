@@ -1,0 +1,11 @@
+#+TITLE: Condicionais
+#+begin_src C :include <stdio.h> :results verbatim
+    int x, y;
+    x = 2; // x na proxima linha tera o valor 2
+    y = x + 3;
+    return 0;
+#+end_src
+
+#+RESULTS:
+
+- composição sequencial, uso do ; para "pular linha"
