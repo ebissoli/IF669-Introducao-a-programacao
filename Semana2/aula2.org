@@ -1,0 +1,65 @@
+#+TITLE: Switch and case
+#+begin_src C :include <stdio.h> :results verbatim
+    int idade = 21;
+
+    switch(idade) {
+        case 18: idade++;
+            if(idade % 2 == 0)
+                printf("Idade=%d\n", idade);
+            else
+                printf("Idade =%d\n", idade-1);
+            break;
+
+        case 20: idade--;
+            printf("Idade=%d\n", idade);
+            break;
+        default: printf("Nem eh 18 e nem 20\n");
+    }
+
+#+end_src
+
+#+RESULTS:
+: Nem eh 18 e nem 20
+
+- Para escolhas múltiplas, usa-se o switch & case
+- switch não precisa de {}, os : serve como delimitador
+- sem break os outros cases são executados, use o break para sair do escopo do switch.
+- default só faz sentido no final de um switch, visto que funciona como um "else" genérico.
+#+RESULTS:
+: Pronto
+
+#+begin_src C :include <stdio.h> :results verbatim
+    float operando1, operando2, resultado;
+    char operacao;
+    printf("Digite os operandos: \n");
+    operando1 = 20; operando2 = 12;
+    printf("Que operação deseja (+, -, *, /): \n");
+    operacao = '*';
+    switch(operacao){
+        case '+':
+            printf("Resultado da + = %f", operando1+operando2);
+            break;
+        case '-':
+            printf("Resultado da - = %f", operando1-operando2);
+            break;
+        case '*':
+            printf("Resultado da * = %f", operando1*operando2);
+            break;
+        case '/':
+            if(operando2 == 0)
+                printf("Divisao invalida");
+            else
+                printf("Resultado da / = %f", operando1/operando2);
+            break;
+        default:
+            printf("Operacao inválida\n");
+    }
+#+end_src
+
+#+RESULTS:
+: Digite os operandos:
+: Que operação deseja (+, -, *, /):
+: Resultado da * = 240.000000
+
+- Quando capturar "char" ou "string" use um ' ' na leitura do %c ou %s, para evitar problemas de buffer. Note que se o primeiro scanf for de um char, não importa ou se o ENTER
+  não tiver sido pressionado anteriormente.
