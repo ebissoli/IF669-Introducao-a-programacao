@@ -9,3 +9,82 @@
 #+RESULTS:
 
 - composição sequencial, uso do ; para "pular linha"
+
+ #+begin_src C :include <stdio.h> :results verbatim
+float x, y;
+printf("Digite 2 numeros: \n");
+x = 2;
+y = 0;
+if(y != 0)
+    printf("Divisao = %.1f\n", x / y);
+if (y == 0)
+    printf("Divisao = %.1f\n", x / y);
+return 0;
+ #+end_src
+
+ #+RESULTS:
+ : Digite 2 numeros:
+ : Divisao = inf
+
+- float é um subconjunto dos reais
+- [[file:../../../../emacs/org/roam/20210531151712-ieee_754.org][IEEE 754]], padrão para float
+
+- função parcial f(x/y) é indefinida para algum valor.
+- quando condições são complementares, é possível trocar um if por um else
+  obs: suponha uma condição que testa para diferente, logo o complementar lógico seria o que testa igual
+- "no C tudo reduz a número, todo tipo se reduz a um número"
+- if(!(exp)) == if(y != 0) equivalentes
+- Podemos escrever else if (exp); else exp2; Logo não precisamos de chave
+- o || do C são inclusivos, não exclusivos
+
+ #+begin_src C :include <stdio.h> :results verbatim
+    // ax + b = 0
+    // x = - b / a (a != 0)
+    float a, b, x;
+    printf("Digite os coeficientes do 1o grau: \n");
+    a = 2; b = 3;
+    if(a != 0){
+        x = -b /a;
+        printf("Raiz= %.2f \n", x);
+    }
+    else
+        printf("Equação sem solução \n");
+    return 0;
+ #+end_src
+
+ #+RESULTS:
+ : Digite os coeficientes do 1o grau:
+ : Raiz= -1.50
+
+#+begin_src C :include <stdio.h> :results verbatim
+#include <math.h>
+    float imc, peso, altura;
+    printf("Qual seu peso e sua altura (em m): \n");
+    peso = 60; altura = 1.8;
+    if(altura >= 1 && altura <= 2.5){
+    // Calculo de IMC sem problema
+    imc = peso / pow(altura, 2);
+    }
+    else{
+        if(altura < 1)
+            printf("Formula nao se aplica para esta altura\n");
+        if(altura > 2.5)
+            printf("Acho que voce confundiu a altura em metros, por centímetros");
+        }
+    return 0;
+#+end_src
+
+#+RESULTS:
+
+#+begin_src C :include <stdio.h> :results verbatim
+#include <math.h>
+    float pReal, pImag;
+    printf("Digite as partes de um número complexo: ");
+    pReal = 2; pImag = -10;
+    printf("%.2f %c %.2fi\n", pReal, pImag<0?'-':'+' , fabs(pImag)); // operador ternário (if)
+    return 0;
+
+#+end_src
+
+#+RESULTS:
+: Digite as partes de um número complexo: 2.00 - 10.00i
