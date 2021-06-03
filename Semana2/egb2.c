@@ -11,9 +11,9 @@ int main() {
   printf("Qual o tempo de validade (em dias, máximo 20)?\n");
   scanf("%d", &diasDesloc);
 
-  if (diasDesloc > 20 || diasDesloc <= 0)
+  if (diasDesloc > 20 || diasDesloc < 0)
     printf("Número de dias inválido, número inserido ,%d, é %s", &diasDesloc,
-           diasDesloc > 20 ? "maior que 20" : "menor que 1");
+           diasDesloc > 20 ? "maior que 20" : "dia inválido");
   int diaTotal = diasDesloc + diaFab;
   // abaixo algumas flags lógicas
   int meioAnoPar =
