@@ -12,12 +12,13 @@ int main() {
       printf("Sobre o eixo y");
   else {
     theta = acos(x / (sqrt(pow(x, 2) + pow(y, 2)))) +
-            (((x < 0) && (y > 0)) || ((x > 0) && (y < 0)) * (-M_PI / 2));
-    if (0 < theta < M_PI / 2)
+            (((x < 0 && y < 0) * (2 * cos(-x / sqrt(pow(x, 2) + pow(y, 2))))) +
+             ((x > 0 && y < 0) * (-2 * cos(x / sqrt(pow(x, 2) + pow(y, 2))))));
+    if (0 < theta && theta < (M_PI / 2))
       printf("Primeiro Quadrante");
-    else if (M_PI / 2 < theta && theta < M_PI)
-      printf("Terceiro Quadrante");
-    else if (M_PI < theta && theta < (3 * M_PI) / 2)
+    else if ((M_PI / 2) < theta && theta < M_PI)
+      printf("Segundo Quadrante");
+    else if (M_PI < theta && theta < (3 * M_PI / 2))
       printf("Terceiro Quadrante");
     else
       printf("Quarto Quadrante");
