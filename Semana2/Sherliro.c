@@ -19,6 +19,6 @@ int main() {
     break;
   default:
     printf("Sherliro vai ser perseguido hoje e ainda ta sem nave\n");
-    printf("faltam %.2f Napoleocoins", -(dividaFalta + naveSobra));
+    printf("faltam %.2f Napoleocoins", -(dividaFalta);
   }
 }
