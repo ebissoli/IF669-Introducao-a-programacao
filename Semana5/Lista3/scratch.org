@@ -1,0 +1,8 @@
+#+TITLE: Scratch
+
+while char not being repeated consider might be [[file:../../../../../emacs/org/roam/20210627170328-palindrome.org][palindrome]]
+abcded
+    -make an array with the previous element such that the order is as
+    follows
+        e d c b a, so you only check if it the next element is equal public
+    thati is to say if a[index+1]=a[index-1] this check the thing
