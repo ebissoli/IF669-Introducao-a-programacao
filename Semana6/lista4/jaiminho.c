@@ -34,7 +34,7 @@ int main(){
                     cont3=cont2;cont4=0;
                     if(cadastro[cadastroAtual].eCasa){
                         while(cadastro[cont1].numCasa>=cadastro[cont3].numCasa*(cadastro[cont3++].eCasa)); // se for eCasa, tautologia, note que ordenou e 1 nessa linha
-                        while(cadastro[cont1].numCasa==cadastro[cont3].numCasa && ordenou) if(cadastro[cont1++].ordenamento>=cadastro[cont3++].ordenamento) ordenou=0;
+                        while(cadastro[cont1].numCasa==cadastro[cont3].numCasa && ordenou)if(cadastro[cont1++].ordenamento>=cadastro[cont3++].ordenamento) ordenou=0;
                     }
                     else{
                         while(cadastro[cont1].numPredio>=cadastro[cont3].numPredio*(!cadastro[cont3++].eCasa)); // se for eCasa, tautologia, note que ele passa pelo "pipe" de ordenamentos
