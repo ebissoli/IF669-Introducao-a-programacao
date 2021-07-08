@@ -1,34 +1,45 @@
 #include <stdio.h>
 #include <math.h>
 struct ponto{
-    long int px, py, pz, dist;
-    int ID;
+    long int px, py, pz;
+    int ID, evalido;
 };
 int main(){
-    int numCaixas, cont1, cont2, cont3, cont4;scanf("%d",&numCaixas);
-    struct ponto ponto, ordemAtual[numCaixas], ordemFinal[numCaixas];int flag=1;
-    while(numCaixas){
-       ordemAtual[0].px=0;ordemFinal[0].px=0;ordemAtual[0].py=0;ordemFinal[0].py=0;ordemAtual[0].pz=0;ordemFinal[0].pz=0;ordemAtual[0].dist=0;ordemFinal[0].dist=0;ordemFinal[0].ID=-1;flag=0;cont1=-1;
-        while(numCaixas) {
-            scanf("%ld %ld %ld", &ponto.px, &ponto.py,&ponto.pz); ponto.ID=++cont1;cont2=1;
-            if(ponto.ID>0){
-            while(pow(ponto.px-ordemFinal[cont2-1].px,2)+pow(ponto.py-ordemFinal[cont2-1].py,2)+pow(ponto.pz-ordemFinal[cont2-1].pz,2)>
-                  pow(ordemFinal[cont2].px-ordemFinal[cont2-1].px,2)+pow(ordemFinal[cont2].py-ordemFinal[cont2-1].py,2)+pow(ordemFinal[cont2].pz-ordemFinal[cont2-1].pz,2)
-                  && cont2<=cont1) cont2++;cont4=cont2; // compara e ordena as distancias
-            ponto.dist = ((ponto.px-ordemFinal[cont2-1].px)*(ponto.px-ordemFinal[cont2-1].px))+((ponto.py-ordemFinal[cont2-1].py)*(ponto.py-ordemFinal[cont2-1].py))
-                +((ponto.pz-ordemFinal[cont2-1].pz,2)*(ponto.pz-ordemFinal[cont2-1].pz,2));
-            while(((ponto.dist-((ordemFinal[cont2].px-ordemFinal[cont4-1].px)*(ordemFinal[cont2].px-ordemFinal[cont4-1].px))
-                    +((ordemFinal[cont2].py-ordemFinal[cont4-1].py)*(ordemFinal[cont2].py-ordemFinal[cont4-1].py))
-                    +((ordemFinal[cont2].pz-ordemFinal[cont4-1].pz)*(ordemFinal[cont2].pz-ordemFinal[cont4-1].pz))==0))
-             && (cont2<=cont1))cont2++; // para ordenar por ID
-            for(cont3=cont2;cont3<=(cont2>cont1?cont2:cont1);cont3++) {if(cont3==cont2)ordemAtual[cont3]=ponto; ordemAtual[cont3+1] = ordemFinal[cont3];}
-            for(cont3=cont2;cont3<=(cont2>cont1?cont2:cont1);cont3++) {if(cont3==cont2)ordemFinal[cont3]=ordemAtual[cont3]; ordemFinal[cont3+1] = ordemAtual[cont3+1];}
+    int numCaixas, cont1, cont2, cont3, cont4, cont5, cont6;scanf("%d%*c",&numCaixas);
+    struct ponto ponto[numCaixas+1],guardar, guardar_previo, temp;int flag=1, flag2;int visitou=0;long int th, distancia,contarDaqui;
+    ponto[0].px=0;ponto[0].py=0;ponto[0].pz=0;cont1=1;
+    while(numCaixas!=0){
+            while(numCaixas){
+                scanf("%ld %ld %ld", &ponto[cont1].px, &ponto[cont1].py,&ponto[cont1].pz);
+                ponto[cont1].ID=cont1;ponto[cont1].evalido=1;
+                numCaixas--;cont1++;
             }
-            else if(ponto.ID==0) {ordemFinal[1]=ponto;ordemFinal[1].dist= sqrt((pow(ponto.px,2)+pow(ponto.py,2)+pow(ponto.pz,2)));}
-            numCaixas--;
+        cont2=-1;contarDaqui=0;
+        while(++cont2<cont1-1){
+            cont3=0;th=9999999999;
+            while((++cont3)<cont1){
+                distancia = ((ponto[cont3].px-ponto[contarDaqui].px)*(ponto[cont3].px-ponto[contarDaqui].px))+
+                   ((ponto[cont3].py-ponto[contarDaqui].py)*(ponto[cont3].py-ponto[contarDaqui].py))+
+                    ((ponto[cont3].pz-ponto[contarDaqui].pz)*(ponto[cont3].pz-ponto[contarDaqui].pz));
+                if(distancia<=th && ponto[cont3].evalido){
+                    if((ponto[cont3].ID<guardar.ID && ponto[cont3].ID!=guardar_previo.ID) && th==distancia){guardar=ponto[cont3];}
+                    else if(th !=distancia) guardar=ponto[cont3];
+                    th=(((ponto[cont3].px-ponto[contarDaqui].px)*(ponto[cont3].px-ponto[contarDaqui].px))+
+                   ((ponto[cont3].py-ponto[contarDaqui].py)*(ponto[cont3].py-ponto[contarDaqui].py))+
+                    ((ponto[cont3].pz-ponto[contarDaqui].pz)*(ponto[cont3].pz-ponto[contarDaqui].pz)));
+                }
+            }
+            contarDaqui=guardar.ID;
+            ponto[guardar.ID].evalido=0;
+            if(cont2==cont1-2){printf("%d",ponto[guardar.ID].ID);continue;}
+            printf("%d ",ponto[guardar.ID].ID);
+            guardar_previo.ID=guardar.ID;
         }
-        for(cont2=0;cont2<=cont1;cont2++){if(cont2>=cont1+1){printf("%d", ordemFinal[cont2+1].ID+1);continue;}printf("%d ", ordemFinal[cont2+1].ID+1);}
-        printf("\n");scanf(" %d",&numCaixas);for(cont2=0;cont2<=cont1+1;cont2++) {ordemFinal[cont2].px=ordemAtual[cont2].px=ordemFinal[cont2].py=ordemAtual[cont2].py=ordemFinal[cont2].pz=ordemAtual[cont2].pz=99999999;}
+        for(cont3=0;cont3<=cont1-1;cont3++) ponto[cont3].px=ponto[cont3].py=ponto[cont3].pz=ponto[cont3].evalido=0;
+        printf("\n");
+        guardar.ID=0;
+        cont1=1;
+        scanf("%d%*c", &numCaixas);
     }
     return 0;
 }
