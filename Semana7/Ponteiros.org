@@ -1,0 +1,23 @@
+#+TITLE:  Ponteiros
+
+Qualquer atribuição em C irá colocar sizeof(tipo) na memória de maneira contígua.
+
+Todo tipo é um vetor de byte, inclusive o char.
+O nome da variável é uma abstração para o programador, para o compilador o nome é uma referĘncia ao endereço do conteúdo de var na memória.
+
+usar "&" para pegar endereço de alguma variável.
+
+Usar o operador de deferência para manipular os valores no endereço de memória.
+
+Ponteiro tem tamanho do sizeof(&var) que geralmente é long int.
+
+Ponteiro não usa "&" para atribuir o endereço de um array.
+
+*(pointer + desloc) = valor // pvet[desloc] = valo;
+
+outra maneira de declarar
+pointer = (tipo *) malloc(sizeof(tipo));
+
+NULL é um ponteiro
+
+Tomar cuidado com realloc, malloc e calloc para evitar apontar para NULL e com calloc se ligar para nao perder o endecço prewío
