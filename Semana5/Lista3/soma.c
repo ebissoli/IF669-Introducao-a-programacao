@@ -1,16 +1,23 @@
 #include <stdio.h>
+#include <string.h>
 #include <math.h>
-int main(){
-    long int num1, temp3, temp1, cont1, soma=0;int qTd, num[100], zeros[100];
-    scanf("%d", &qTd);temp3=qTd;
+int main() {
+    char numero[100];char recorte[7], zeros[100], somaString[120];
+    int cont1, eNegativo, tamanho, ultimaUnidade, qTd;long long int soma;
+    for(cont1=0;numero[cont1]!='\0';cont1++) numero[cont1]='0';
+    scanf("%d", &qTd);soma=0;
     do{
-        cont1=0;
-        scanf("%ld", &num1);temp1=num1;
-        while(temp1%10 ==0) {cont1++;temp1/=10;}
-        int numInt1=temp1%10+ temp1/10%10*10 + temp1/10/10%10*100 + temp1/10/10/10%10*1000 + temp1/10/10/10/10%10*10000 + temp1/10/10/10/10/10%10*100000;
-        num[qTd] = numInt1;zeros[qTd] = cont1;
-
+         for(cont1=0;recorte[cont1]!='\0';cont1++) recorte[cont1] = '\0';
+        scanf(" %s", numero);eNegativo=(numero[0]=='-');//assumimos que ele tem pelo menos um digito.
+        for(cont1=eNegativo?1:0;numero[cont1]!='\0' && cont1<=6;cont1++) ultimaUnidade=cont1;
+        strncpy(recorte,numero, eNegativo? ultimaUnidade: ultimaUnidade-1);
+        if(eNegativo)
+            for(cont1=1;recorte[cont1]!='\0';cont1++){
+                soma-=pow(10,strlen(recorte)-cont1-1)*((int) recorte[cont1]-'0');
+            }
+        else for(cont1=0;recorte[cont1]!='\0';cont1++)
+                 soma+=pow(10,strlen(recorte)-cont1-1)*((int) recorte[cont1]-'0');
     }while(--qTd);
-    printf("%d", soma);
-    return 0;
+    tamanho=strlen(numero)-ultimaUnidade; // tamanho do zero-padding
+    printf("%lld", soma); for(cont1=0;cont1<=tamanho;cont1++) printf("0");
 }

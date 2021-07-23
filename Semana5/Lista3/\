@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main(){
+    char palavra[500];
+    scanf("%499[^\n]s", palavra);
+    for(int cont=0;palavra[cont]!='\0';cont++){
+        switch (palavra[cont]) {
+            case '4':
+                palavra[cont]='a';
+                continue;
+            case '5':
+                palavra[cont]='e';
+                continue;
+            case '1':
+                palavra[cont]='i';
+                continue;
+            case '0':
+                palavra[cont]='o';
+                continue;
+            case '2':
+                palavra[cont]='u';
+                continue;
+            default:
+                continue;
+                    }
+        for(cont=0;palavra[cont]!='\0';cont++) printf("%c", palavra[cont]);
+    }
+}

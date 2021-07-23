@@ -28,7 +28,6 @@ int main(){
             }
         else { // acesso
             cont1=-1;cadastrosValidos=0;cont2=-1;ordenou=1;
-<<<<<<< HEAD
             scanf("%[^\n]s, %[^\n]s", morador, Rua); // vai procurar o cadastrado
             while(strcmp(morador, cadastro[++cont1].nome) && strcmp(Rua,cadastro[cont1].Rua) || cont1<=cadastroAtual){
                 if(cont2++>0){
@@ -36,7 +35,6 @@ int main(){
                     if(cadastro[cadastroAtual].eCasa){
                         while(cadastro[cont1].numCasa>=cadastro[cont3].numCasa*(cadastro[cont3++].eCasa)); // se for eCasa, tautologia, note que ordenou e 1 nessa linha
                         while(cadastro[cont1].numCasa==cadastro[cont3].numCasa && ordenou)if(cadastro[cont1++].ordenamento>=cadastro[cont3++].ordenamento) ordenou=0;
-=======
             scanf(" %[^\n], %[^\n]", morador, Rua); // vai procurar o cadastrado
             while(++cont1<=cadastroAtual)
                 if(cadastro[cont1].nome==morador && strcmp(cadastro[cont1].Rua,Rua)){
@@ -55,7 +53,6 @@ int main(){
                         validos[cont3] = cadastro[cont1]; // cadastro e ordenado como deve no vetor final
                         for(cont4=cont3+1;cont4<=cont2;cont4++) ordenacao[cont4]=validos[cont4]; // preenche array a partir de index modificado+1, shift dos elementos
                         for(cont5=cont3;cont5<=cont4;cont5++) validos[cont3]=ordenacao[cont4];cadastrosValidos++;continue; // coloca no array final o ordenamento
->>>>>>> 46bb1f4a5ce7eb2e7af975e2491971ab959eeb3f
                     }
                     validos[cont2] = cadastro[cont1]; cadastrosValidos++; // so deve ser executado quando cont2==0;
                 }
