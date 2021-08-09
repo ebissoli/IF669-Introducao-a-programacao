@@ -1,0 +1,89 @@
+#+TITLE: Aula da primeira semana
+
+* Aula 1
+** Programa 1
+
+  #+begin_src C :includes <stdio.h> :results verbatim
+/* Objetivo: Um primeiro programa C
+ Autor: Enzo Bissoli
+ Data: 25.05.21 */
+int main() {
+    // Este programa faz nada
+    printf("\n\n");
+    printf(" Bem-vindos turma de 2020-2 de Engenharia da Computação\n");
+}
+  #+end_src
+
+  #+RESULTS:
+  :
+  :
+  : Bem-vindos turma de 2020-2 de Engenharia da Computação
+
+ - enviar código no TheHuxley com o nome que aparece no email do cin: egb2.c
+
+** programa 2
+  #+begin_src C :include <stdio.h> :results verbatim
+/* Objetivo: Um segundo programa C
+ Autor: Enzo Bissoli
+ Data: 25.05.21 */
+const float PI = 3.14; //definindo constante e o tipo
+// #define PI 3.14
+#define perim(r) (2*PI*r) // definindo uma macro
+int main() {
+    float raio;
+    printf("%f", &raio); //%f usado para interpretar conteúdo digitado como string.
+    // qual o valor de raio aqui? O valor presente na memória
+    raio = 5;
+    printf("Perímetro circ=%.2f\n", 2 * perim(5));
+}
+  #+end_src
+
+  #+RESULTS:
+  : 0.000000Perímetro circ=62.80
+
+ #+name: num_1
+ #+begin_src elisp
+(string-to-number (completing-read "Input:" nil))
+ #+end_src
+
+ #+RESULTS: num_1
+ : 23
+
+ #+name: num_2
+ #+begin_src elisp
+(string-to-number (completing-read "Input:" nil))
+ #+end_src
+
+ #+RESULTS: num_2
+ : 2
+
+** programa 3
+  #+begin_src C :include <stdio.h> :results verbatim :var num_1 :var num_2
+/* Objetivo: Um terceiro programa C
+ Autor: Enzo Bissoli
+ Data: 25.05.21 */
+int main() {
+    float _media;}
+    printf("Digite 2 números inteiros: ");
+    media = ((float) (num_1 + num_2) )/ 2;
+    printf("Média = %.2f\n", media);
+}
+  #+end_src
+ - complexidade temporal e espacial
+ - unsigned vars evitar código com valores negativos
+  #+RESULTS:
+
+* Aula 2
+  - código em objeto, assembly
+   #+begin_src C :results verbatim :includes <stdio.h>
+    int main() {
+    int m = 10, n = 20;
+    //++m;
+    n = n + (++m);
+    printf("n=%d\n", n);
+    return 0;
+    }
+   #+end_src
+- não existe tipo booleano em C
+   #+RESULTS:
+   : m=11

@@ -1,0 +1,4 @@
+#+TITLE: Semana10
+
+* Bit field
+Assembly vs assembler

@@ -1,0 +1,45 @@
+#+TITLE: Laços
+
+* Cálculo de Refinamento :ATTACH:
+  :PROPERTIES:
+  :ID:       6ce28aa3-5bd8-48bc-b0b7-1989ae040d40
+  :END:
+[[attachment:_20210607_152244screenshot.png]]
+
+* Resolução do problema
+
+-Álgebra de Boole vs Bitwise operations
+#+begin_src C :include <stdio.h> :results verbatim :header stdio.h
+int main(){
+    printf("%d\n",3|1);
+    printf("%d\n",4|2);//note que aqui é comparação bitwise
+    printf("%d",4||1);// e aqui é booleana
+}
+#+end_src
+
+#+RESULTS:
+: 3
+: 6
+: 1
+
+- Espaço em branco no ponteiro
+ #+begin_src C :include <stdio.h> :results verbatim :header stdio.h
+int main(){
+    int k;
+    scanf("%d", & k);
+}
+ #+end_src
+ Nesse caso o espaço em branco não afeta, a ',' delimita
+
+* Laços
+
+#+begin_src C :include <stdio.h> :results verbatim
+int main(){
+    int i;
+    for(;;){
+    printf("%d\n",i);
+    }
+}
+#+end_src
+
+- usar while(var++) como maneira de fazer um sintaxe sugar

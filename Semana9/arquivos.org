@@ -1,0 +1,17 @@
+#+TITLE: Arquivos
+
+* Dia 1
+** [[file:../../../../emacs/org/roam/20210726152816-gotchas.org][Gotchas]]
+    - *vet == vet[0]
+    - FILE é uma struct
+    - + é um modificador para w e a para adicionar
+      escrita e leitura respectivamente, a é append.
+** Conceitos
+    arquivos como vetor simples
+* Dia 2
+ * Criptografia
+ usar w,r ou a+t indica um documento opcional se o arquivo é texto ou binário usar w,r ou a+t indica um documento opcional se o arquivo é texto ou binário
+
+ - não há conversão entre arquivo binário da RAM para ascii, diferente do textual
+
+- funções de tratar arquivo binário sempre espera variável e ponteiro

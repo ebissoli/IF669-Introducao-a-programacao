@@ -1,0 +1,18 @@
+#+TITLE: String
+* Notas de aula
+  - maneira de inicializar sem tamanho
+    *char nome[] = "algo aqui\n";*
+    - extrai o tamanho da string, /n e um caractere
+  - usar format specifier %v para pegar o valor do vetor facim
+  - os format specifiers funcionam como uma maneira de fazer um laco com sintaxe mais simples
+ - usar <string.h> para importar biblioteca
+ - python nao usa o tipo vetorial, mas o tipo string, de maneira implicita e sempre um vetor
+- *'\0* e o caractere que indica que chegou no final da string
+  sem esse formatador o compilador nao tem como saber que acabou a string e "invade memoria"
+  - printf("%s\n", nome); e o equivalente a um laco so que um sintaxe sugar
+ - & não se usa em scanf do tipo string, porque?
+ - %[^\n] e uma expressão regular para "coletar strings"
+- usar n-1 do tamanho do vetor no scanf na esquerda do %[^\n]
+- o * * consome o espaço do \n
+- usar o strcpy(strig, "string"); para fazer append de string
+- fgets(string, strlen(n-1), stdin);

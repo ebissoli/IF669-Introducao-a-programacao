@@ -1,0 +1,23 @@
+#+TITLE: Scratch
+
+while char not being repeated consider might be [[file:../../../../../emacs/org/roam/20210627170328-palindrome.org][palindrome]]
+abcded
+    -make an array with the previous element such that the order is as
+    follows
+        e d c b a, so you only check if it the next element is equal public
+    thati is to say if a[index+1]=a[index-1] this check the thing
+
+Notas para aninha
+    Temos uma sequencia do tipo
+         [1 2 3 4 5 6] e precisamos analisar se tal sequencia pode
+         ser "pecorrida" em sua interidade a partir do menor elemento
+         sem que um dos elementos seja menor que um anterior.
+
+         [6 5 4 1 2 3]
+         [1]
+         [2 1]
+         [2 1 3]
+         [2 1 3 -1 4]
+         [9 8 7 6 10 1 19]
+         [2 5 6 1 100]
+         [1 0 9 8 7 -3 0 100 200 300 10 9 87 100]

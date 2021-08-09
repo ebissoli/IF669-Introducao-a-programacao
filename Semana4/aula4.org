@@ -1,0 +1,8 @@
+#+TITLE: Aula4
+* anotações
+evitar acessar memória que não pertence ao programa
+o que implicaria em [[file:../../../../emacs/org/roam/20210614163446-memory_leak.org][memory leak]]
+- recomendável é usar acesso de maneira i < N e i=0 para for e afins
+- inicialização por declaração de vetores
+  int v[n] = {1,2,3} declara automaticamente v[3] com elementos de
+  memória bem determinados, pode colocar n elementos na {}'s
