@@ -1,7 +1,0 @@
-#+TITLE: Anotacoes Aula5
-* Lembrar do operador swap
-  em vez de:
-  x=a;y=b;temp=x;x=y;y=temp;
-  x<=>y e um [[file:../../../../emacs/org/roam/20210510080529-syntatic_sugar.org][syntatic sugar alternativo]]
-* matriz
-  vet[i][j]
